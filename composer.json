@@ -1,0 +1,10 @@
+{
+  "name": "zachl111/platformlint",
+  "description": "Lint service dependency and environment fixtures for deployability risks.",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Portfolio\\": "src/"
+    }
+  }
+}
