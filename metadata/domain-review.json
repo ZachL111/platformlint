@@ -1,0 +1,73 @@
+{
+  "repo": "platformlint",
+  "language": "PHP",
+  "category": "Platform engineering",
+  "goal": "Lint service dependency and environment fixtures for deployability risks.",
+  "review_model": {
+    "terms": [
+      "rollout width",
+      "quota pressure",
+      "route drift",
+      "secret scope"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "rollout width",
+      "signal": 45,
+      "slack": 43,
+      "drag": 24,
+      "confidence": 55,
+      "score": 116,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "quota pressure",
+      "signal": 74,
+      "slack": 30,
+      "drag": 28,
+      "confidence": 72,
+      "score": 166,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "route drift",
+      "signal": 80,
+      "slack": 35,
+      "drag": 14,
+      "confidence": 76,
+      "score": 229,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "secret scope",
+      "signal": 89,
+      "slack": 38,
+      "drag": 21,
+      "confidence": 52,
+      "score": 205,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "rollout width",
+      "signal": 92,
+      "slack": 38,
+      "drag": 12,
+      "confidence": 71,
+      "score": 257,
+      "lane": "ship"
+    }
+  ]
+}
